@@ -12,15 +12,11 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import {Link} from "@material-ui/core";
-import { useHistory } from 'react-router-dom';
-
-
-
-
+import {useHistory} from 'react-router-dom';
 
 
 function App() {
-    const abc = React.createRef()
+
 
     return (
         <div>
@@ -66,29 +62,44 @@ function App() {
 
 
 function NavBar() {
-    const history = useHistory();
-    const handleClick = () => history.push('/about');
+    function about(){
+        window.location.href='http://localhost:3000/about';
+    }
+    function login(){
+        window.location.href='http://localhost:3000/login';
+    }
+function contact(){
+        window.location.href='http://localhost:3000/contact';
+}
+
+
 
     return (
         <div>
             <AppBar position="fixed">
+
                 <Toolbar>
+
                     <IconButton edge="start" color="inherit" aria-label="menu">
+
                         <MenuIcon/>
+
                     </IconButton>
 
                     <Typography style={{"flex": 1}} variant="h6">
+
                     </Typography>
 
+                    <Button onClick={about} id="aboutButton" color="inherit"> About us</Button>
 
-                    <Button onClick={handleClick} id="aboutButton" color="inherit"> About us</Button>
+                    <Button onClick={login} id="logButton" color="inherit">Login</Button>
 
-
-                    <Button id="logButton" color="inherit">Login</Button>
-                    <Button id="contactButton" color="inherit">Contact us</Button>
+                    <Button onClick={contact} id="contactButton" color="inherit">Contact us</Button>
 
                 </Toolbar>
+
             </AppBar>
+
         </div>
     )
 }
