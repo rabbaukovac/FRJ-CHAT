@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Create from "./Create"
 import {Link} from "@material-ui/core";
 import {useHistory} from 'react-router-dom';
 
@@ -24,8 +25,12 @@ function App() {
             <Router>
 
                 {NavBar()}
-
+                <div className="marginBar">
                 <Switch>
+
+                    <Route path="/create">
+                    <Create/>
+                    </Route>
 
                     <Route path="/login">
                         <Login/>
@@ -48,7 +53,7 @@ function App() {
                     </Route>
 
                 </Switch>
-
+                </div>
 
             </Router>
 
@@ -62,16 +67,20 @@ function App() {
 
 
 function NavBar() {
-    function about(){
-        window.location.href='http://localhost:3000/about';
+    function about() {
+        window.location.href = 'http://localhost:3000/about';
     }
-    function login(){
-        window.location.href='http://localhost:3000/login';
-    }
-function contact(){
-        window.location.href='http://localhost:3000/contact';
-}
 
+    function login() {
+        window.location.href = 'http://localhost:3000/login';
+    }
+
+    function contact() {
+        window.location.href = 'http://localhost:3000/contact';
+    }
+    function create() {
+        window.location.href = 'http://localhost:3000/create';
+    }
 
 
     return (
@@ -90,11 +99,19 @@ function contact(){
 
                     </Typography>
 
-                    <Button onClick={about} id="aboutButton" color="inherit"> About us</Button>
+
+
+
 
                     <Button onClick={login} id="logButton" color="inherit">Login</Button>
 
+                    <Button onClick={create} id="createrButton" color="inherit"> Create Account</Button>
+
                     <Button onClick={contact} id="contactButton" color="inherit">Contact us</Button>
+
+                    <Button onClick={about}   id="aboutButton" color="inherit"> About us</Button>
+
+
 
                 </Toolbar>
 

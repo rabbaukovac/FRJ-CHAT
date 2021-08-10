@@ -3,7 +3,10 @@
   width: 100%;
   height: 1000px;
 }
+.marginBar{
+  margin-top: 100px;
 
+}
 #id{
   flex-grow: 100;
 }
